@@ -1,8 +1,8 @@
 import './App.css';
 import { Button } from '@mui/material';
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 
-import SchemaApp from './SchemaApp';
+const SchemaApp = lazy(() => import('./SchemaApp'));
 function App() {
   const [openModal, setOpenModal] = useState(false);
 
@@ -12,7 +12,9 @@ function App() {
   return (
     <div className="App">
       <Button onClick={handleModal}>Save Segment</Button>
-      <SchemaApp open={openModal} handleModal={handleModal} />
+      <Suspense fallback={<p>Loading...</p>}>
+        <SchemaApp open={openModal} handleModal={handleModal} />
+      </Suspense>
     </div>
   );
 }
