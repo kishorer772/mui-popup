@@ -12,9 +12,11 @@ function App() {
   return (
     <div className="App">
       <Button onClick={handleModal}>Save Segment</Button>
-      <Suspense fallback={<p>Loading...</p>}>
-        <SchemaApp open={openModal} handleModal={handleModal} />
-      </Suspense>
+      {openModal && (
+        <Suspense fallback={<p>Loading...</p>}>
+          <SchemaApp open={openModal} handleModal={handleModal} />
+        </Suspense>
+      )}
     </div>
   );
 }

@@ -7,3 +7,5 @@ Schema creation App
 ### Prefix Schema
 
 Optimisation useCallback for List Components handleRemove & handleChangeSchema handlers.
+
+Lazy loading modal onclick submit
